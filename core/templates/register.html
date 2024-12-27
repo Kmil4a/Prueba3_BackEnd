@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-5">
+  <h1 class="text-center">Registro</h1>
+  <form method="POST" class="mt-3">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+
+    <a style="color: white; text-decoration: none" href="{% url 'login' %}">
+        <button class="btn btn-success w-100 mt-3" type="button">
+          Volver a Iniciar Sesión
+        </button>
+      </a>
+  </form>
+</div>
+{% endblock %}
