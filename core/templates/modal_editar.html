@@ -1,0 +1,59 @@
+<div id="editModal" class="modal" tabindex="-1" style="display: none">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="id" id="editTaskId" />
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Tarea</h5>
+          <button
+            type="button"
+            class="btn-close"
+            onclick="closeEditModal()"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="editTaskTitle" class="form-label">Título</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editTaskTitle"
+              name="title"
+              value=""
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="closeEditModal()"
+          >
+            Cancelar
+          </button>
+          <button type="submit" name="update" class="btn btn-primary">
+            Guardar cambios
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openEditModal(id, title) {
+    document.getElementById("editTaskId").value = id;
+    document.getElementById("editTaskTitle").value = title;
+
+    const modal = document.getElementById("editModal");
+    modal.style.display = "block";
+  }
+
+  function closeEditModal() {
+    const modal = document.getElementById("editModal");
+    modal.style.display = "none";
+  }
+</script>
